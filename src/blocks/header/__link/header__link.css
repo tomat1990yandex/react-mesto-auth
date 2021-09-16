@@ -1,7 +1,6 @@
 .header__link {
   cursor: pointer;
   margin: 0;
-  align-self: flex-end;
   padding: 0 0 0 24px;
   color: #FFFFFF;
   text-decoration: none;
@@ -20,7 +19,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 320px) {
   .header__link {
     max-width: 103px;
     padding: 0;

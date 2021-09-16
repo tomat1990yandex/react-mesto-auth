@@ -1,6 +1,7 @@
 .profile__box-pic {
   position: relative;
   display: flex;
+  justify-content: center;
 }
 
 .profile__box-pic:hover .profile__change-btn{
@@ -9,4 +10,5 @@
 
 .profile__box-pic:hover .profile__avatar{
   opacity: 0.4;
+
 }

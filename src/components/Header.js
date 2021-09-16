@@ -5,9 +5,9 @@ import {Link} from "react-router-dom";
 function Header({headerText, login, link, loggedIn, onClick}) {
   return (
     <header className="header">
-      <div className="header__wrapper">
         <img className="header__logo" src={logo} alt={'Проект "Место"'}/>
-        <p className="header__user-email">{login}</p>
+      <div className="header__box">
+      <p className="header__user-email">{login}</p>
         <Link to={link}
               onClick={onClick}
               className={`${loggedIn && 'header__link_logout'} header__link`}
