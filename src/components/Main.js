@@ -1,50 +1,31 @@
-import React, {useEffect, useState} from "react";
-import api from "../utils/Api";
-import Card from "./Card";
+import React, {useContext} from 'react';
+import Card from './Card';
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
-function Main({onEditAvatarPopupOpen, onEditProfilePopupOpen, onAddPlacePopupOpen, onCardClick}) {
-
-  const [userName, setUserName] = useState('');
-  const [userDescription, setUserDescription] = useState('');
-  const [userAvatar, setUserAvatar] = useState('');
-
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    api.getUserData()
-      .then(res => {
-        setUserName(res.name);
-        setUserDescription(res.about);
-        setUserAvatar(res.avatar);
-      })
-      .catch((err) => console.log(err));
-    api.getInitialCards()
-      .then(res => {
-        setCards(res);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+function Main({ isEditAvatarPopupOpen, isEditProfilePopupOpen, isAddPlacePopupOpen, onCardClick, cards, onCardLike,
+                onCardDelete }) {
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <main className="content">
       <section className="profile">
         <div className="profile__box">
-          <div className="profile__box-pic" onClick={onEditAvatarPopupOpen}>
-            <img className="profile__avatar" src={`${userAvatar}`} alt="Аватар профиля"></img>
+          <div className="profile__box-pic" onClick={isEditAvatarPopupOpen}>
+            <img className="profile__avatar" src={`${currentUser.avatar}`} alt="Аватар профиля"></img>
             <button className="profile__change-btn" type="button"
                     aria-label="Изменить аватар пользователя"></button>
           </div>
           <div className="profile__info">
             <div className="profile__box-title">
-              <h1 className="profile__name">{userName}</h1>
+              <h1 className="profile__name">{currentUser.name}</h1>
               <button type="button" className="profile__edit" id="ButtonEdit"
-                      aria-label="Кнопка редактировать" onClick={onEditProfilePopupOpen}></button>
+                      aria-label="Кнопка редактировать" onClick={isEditProfilePopupOpen}></button>
             </div>
-            <p className="profile__profession">{userDescription}</p>
+            <p className="profile__profession">{currentUser.about}</p>
           </div>
         </div>
         <button type="button" className="profile__add" id="ButtonAdd" aria-label="Кнопка добавить"
-                onClick={onAddPlacePopupOpen}></button>
+                onClick={isAddPlacePopupOpen}></button>
       </section>
 
       <section className="elements">
@@ -54,6 +35,8 @@ function Main({onEditAvatarPopupOpen, onEditProfilePopupOpen, onAddPlacePopupOpe
               card={card}
               key={card._id}
               onCardClick={onCardClick}
+              onCardLike={onCardLike}
+              onCardDelete={onCardDelete}
             />
           ))
         }
