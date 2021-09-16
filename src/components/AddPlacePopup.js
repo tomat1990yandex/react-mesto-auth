@@ -2,21 +2,17 @@ import React, { useState, useEffect } from 'react';
 import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
-  //Стейты для имени и ссылки на картинку
   const [cardTitle, setCardTitle] = useState('');
   const [cardLink, setCardLink] = useState('');
 
-  //Обработчик установки названия места
   function handleCardTitle(event) {
     setCardTitle(event.target.value)
   }
 
-  //Обработчик установки картинки (ссылки на картинку)
   function handleCardLink(event) {
     setCardLink(event.target.value)
   }
 
-  //Обработчик сабмита формы поп-апа добавления карточки
   function handleSubmit(event) {
     event.preventDefault();
 
