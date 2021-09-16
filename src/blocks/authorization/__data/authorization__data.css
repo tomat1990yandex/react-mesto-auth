@@ -3,14 +3,14 @@
   outline: none;
   box-shadow: none;
   width: 100%;
-  margin-bottom: 30px;
-  padding: 0;
+  margin-bottom: 31px;
+  padding: 0 0 8px 0;
   border: 0;
   border-bottom: 2px solid #CCCCCC;
 
   color: #CCCCCC;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.2;
 }

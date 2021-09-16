@@ -1,12 +1,12 @@
 .authorization__login-text {
   cursor: pointer;
-  margin: 15px auto;
+  margin: 21px auto;
   color: #FFFFFF;
   text-decoration: none;
   text-align: center;
 
   font-style: normal;
-  font-weight: normal;
+  font-weight: 40;
   font-size: 14px;
   line-height: 1.17;
   white-space: nowrap;

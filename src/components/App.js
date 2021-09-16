@@ -272,7 +272,7 @@ function App() {
           isOpen={isTooltipOpened}
           onClose={closeRegModal}
           isRegSuccess={isAuth}
-          regSuccess="Вы успешно зарегестрировались!"
+          regSuccess="Вы успешно зарегистрировались!"
           regFailed="Что-то пошло не так! Попробуйте ещё раз."
         />
       </div>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import Header from "./Header";
 
@@ -31,7 +30,7 @@ function Login({ handleLogin }) {
                  className="authorization__data"
                  value={authData.email}
                  onChange={handleOnChange}
-                 placeholder="E-mail"
+                 placeholder="Email"
           />
           <input type="password"
                  required
@@ -41,14 +40,11 @@ function Login({ handleLogin }) {
                  className="authorization__data"
                  value={authData.password}
                  onChange={handleOnChange}
-                 placeholder="Password"
+                 placeholder="Пароль"
           />
           <button className="authorization__button"
                   type="submit"
           >Войти</button>
-          <Link to="/sign-up"
-                className="authorization__login-text"
-          >Нет учетной записи? Зарегистрироваться</Link>
         </form>
       </div>
     </>

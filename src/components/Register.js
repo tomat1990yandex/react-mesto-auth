@@ -31,7 +31,7 @@ function Register({ handleRegister }) {
                  className="authorization__data"
                  value={regData.email}
                  onChange={handleOnChange}
-                 placeholder="E-mail"
+                 placeholder="Email"
           />
           <input type="password"
                  required
@@ -41,7 +41,7 @@ function Register({ handleRegister }) {
                  className="authorization__data"
                  value={regData.password}
                  onChange={handleOnChange}
-                 placeholder="Password"
+                 placeholder="Пароль"
           />
           <button className="authorization__button"
                   type="submit"
