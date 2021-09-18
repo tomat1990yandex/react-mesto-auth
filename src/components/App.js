@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import { Route, Switch, useHistory, withRouter } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import CurrentUserContext from "../contexts/CurrentUserContext";
@@ -53,10 +53,14 @@ function App() {
     window.addEventListener('keydown', handleClosePopupWithEsc);
   }
 
-  function handleClosePopupWithEsc (event) {
+  const handleClosePopupWithEsc = useCallback((event) => {
     if (event.keyCode === 27) {
       closeAllPopups();
     }
+  }, [])
+
+  function setEscapeListener() {
+    window.addEventListener('keydown', handleClosePopupWithEsc);
   }
 
   function openRegModal() {
@@ -90,17 +94,17 @@ function App() {
 
   function handleEditAvatarClick() {
     setIsAvatarPopupOpen(true);
-    window.addEventListener('keydown', handleClosePopupWithEsc);
+    setEscapeListener();
   }
 
   function handleEditProfileClick() {
     setIsProfilePopupOpen(true);
-    window.addEventListener('keydown', handleClosePopupWithEsc);
+    setEscapeListener();
   }
 
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
-    window.addEventListener('keydown', handleClosePopupWithEsc);
+    setEscapeListener();
   }
 
   function closeAllPopups() {
@@ -108,7 +112,6 @@ function App() {
     setIsAvatarPopupOpen(false);
     setIsProfilePopupOpen(false);
     setSelectedCard(null);
-    window.removeEventListener('keydown', handleClosePopupWithEsc);
   }
 
   const handleRegister = (data) => {
